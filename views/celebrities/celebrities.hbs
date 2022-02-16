@@ -1,24 +1,25 @@
 <h2>Celebrities</h2>
 
-<a href="/celebrities/new-celebrity"> New Celebrity </a>
-
+<a href="/celebrities/create"> New Celebrity </a>
 
 {{#each celebrities}}
   <hr />
   <h3>
-    Name: {{name}} 
+    Name:
+    {{name}}
   </h3>
 
   <h3>
-    Occupation:  {{occupation}}
+    Occupation:
+    {{occupation}}
   </h3>
 
   <h3>
-    Catch Phrase:   {{catchPhrase}}
-  
+    Catch Phrase:
+    {{catchPhrase}}
+
   </h3>
-  <a href="/celebrities/{{_id}}">Show details</a>
-  <hr />
+  <a href="/celebrity/{{_id}}">Show details</a>
 {{/each}}
 
 <a href="/">

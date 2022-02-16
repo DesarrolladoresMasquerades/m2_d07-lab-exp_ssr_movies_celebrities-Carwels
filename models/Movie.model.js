@@ -7,7 +7,11 @@ const movieSchema = new Schema({
     plot: String,
     cast: [{ type: Schema.Types.
         ObjectId, ref: "Celebrity"}]
-})
+},
+{
+    timestamps: true
+}
+)
 
 const Movie = model("Movie", movieSchema)
 

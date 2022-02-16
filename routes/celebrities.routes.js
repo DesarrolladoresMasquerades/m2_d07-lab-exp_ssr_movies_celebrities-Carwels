@@ -4,6 +4,17 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model")
 
 // all your routes here
+
+router.post("/celebrities/:id/delete", (req, res) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+      .then(() => {
+        res.redirect("/celebrities");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
 router.get("/celebrities/create", (req, res) => res.render("celebrities/new-celebrity"))
 
 router.post("/celebrities/create", (req, res) => {
@@ -15,6 +26,12 @@ router.post("/celebrities/create", (req, res) => {
         console.log(error)
         res.redirect("celebrities/new-celebrity")
     })
+})
+
+router.get("/celebrity/:id", (req, res)=>{
+    Celebrity.findById(req.params.id)
+    .then((celebrity)=>{res.render("celebrities/celebrity-details.hbs", celebrity)})
+    .catch((err)=>{console.log(err)})
 })
 
 router.get("/celebrities", (req, res) => {
