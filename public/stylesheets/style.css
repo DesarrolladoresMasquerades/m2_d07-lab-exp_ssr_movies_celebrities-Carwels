@@ -21,3 +21,9 @@ h3 {
   color:rgb(5, 76, 148)
 }
 
+.button {
+  background-color: azure;
+  color: black;
+  border: 2px solid black;
+}
+
